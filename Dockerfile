@@ -9,5 +9,5 @@ FROM quay.io/keycloak/keycloak:latest
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 ENV KC_HTTP_ENABLED=true
 ENV KC_HOSTNAME_STRICT=false
-ENV PROXY_ADDRESS_FORWARDING=true
+ENV PROXY_ADDRESS_FORWARDING=false
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]
