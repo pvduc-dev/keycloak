@@ -7,8 +7,7 @@ RUN /opt/keycloak/bin/kc.sh build
 
 FROM quay.io/keycloak/keycloak:latest
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
-ENV KC_HTTP_ENABLED=false
-ENV KC_HTTPS_ENABLED=false
+ENV KC_HTTP_ENABLED=true
 ENV KC_HOSTNAME_STRICT=false
 ENV PROXY_ADDRESS_FORWARDING=true
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start dev"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]
